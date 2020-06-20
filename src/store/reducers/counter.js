@@ -9,10 +9,6 @@ const reducer = (state = initialState, action) => {
       const newState = Object.assign({}, state);
       newState.counter = state.counter + 1;
       return newState;
-    // return {
-    //   ...state,
-    //   counter: state.counter + 1,
-    // };
     case actionTypes.DECREMENT:
       return {
         ...state,
@@ -29,26 +25,7 @@ const reducer = (state = initialState, action) => {
         counter: state.counter - action.payload,
       };
   }
-  // if(action.type === 'INCREMENT') {
-  //   return {
-  //     counter: state.counter + 1
-  //   }
-  // }
-  // if(action.type === 'DECREMENT') {
-  //   return {
-  //     counter: state.counter - 1
-  //   }
-  // }
-  // if(action.type === 'ADD') {
-  //   return {
-  //     counter: state.counter + action.payload
-  //   }
-  // }
-  // if(action.type === 'SUBTRACT') {
-  //   return {
-  //     counter: state.counter - action.payload
-  //   }
-  // }
+
   return state;
 };
 

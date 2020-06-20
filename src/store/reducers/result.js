@@ -2,18 +2,20 @@ import * as actionTypes from "../actions";
 const initialState = {
   results: [],
 };
+console.log("initialState", initialState);
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.STORE_RESULT:
       return {
         ...state,
-        results: state.results.concat({ id: new Date(), value: action.result }),
+        results: state.results.concat({
+          id: new Date(),
+          // value: state.counter - was before
+          value: action.result,
+        }),
       };
     case actionTypes.DELETE_RESULT:
-      // const id = 2;
-      // const newArray = [...state.results]
-      // newArray.splice(id, 1)
       const updatedArray = state.results.filter(
         (result) => result.id !== action.resultElId
       );
@@ -22,26 +24,7 @@ const reducer = (state = initialState, action) => {
         results: updatedArray,
       };
   }
-  // if(action.type === 'INCREMENT') {
-  //   return {
-  //     counter: state.counter + 1
-  //   }
-  // }
-  // if(action.type === 'DECREMENT') {
-  //   return {
-  //     counter: state.counter - 1
-  //   }
-  // }
-  // if(action.type === 'ADD') {
-  //   return {
-  //     counter: state.counter + action.payload
-  //   }
-  // }
-  // if(action.type === 'SUBTRACT') {
-  //   return {
-  //     counter: state.counter - action.payload
-  //   }
-  // }
+
   return state;
 };
 
