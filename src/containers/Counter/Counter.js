@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import * as actionTypes from "../../store/actions/actions";
+// import * as actionTypes from "../../store/actions/actions";
 import {
   increment,
   decrement,
@@ -93,7 +93,7 @@ const mapDispatchToProps = (dispatch) => {
     //   }),
     onIcrementCounter: () => dispatch(increment()),
     onDecrementCounter: () => dispatch(decrement()),
-    onAddCounter: () => dispatch(add()),
+    onAddCounter: () => dispatch(add(7)),
     onSubtractCounter: () => dispatch(subtract()),
     onStoreResult: (result) => dispatch(store_result(result)),
     onDeleteResult: (id) => dispatch(delete_result(id)),
