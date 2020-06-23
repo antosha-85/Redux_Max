@@ -3,6 +3,14 @@ import { updateObject } from "../utility";
 const initialState = {
   results: [],
 };
+
+const deleteResult = (state, action) => {
+  const updatedArray = state.results.filter(
+    (result) => result.id !== action.resultElId
+  );
+  return updateObject(state, { results: updatedArray });
+};
+
 console.log("initialState", initialState);
 
 const reducer = (state = initialState, action) => {
@@ -23,14 +31,15 @@ const reducer = (state = initialState, action) => {
     //   }),
     // };
     case actionTypes.DELETE_RESULT:
-      const updatedArray = state.results.filter(
-        (result) => result.id !== action.resultElId
-      );
-      return updateObject(state, {results: updatedArray})
-      // return {
-      //   ...state,
-      //   results: updatedArray,
-      // };
+      return deleteResult(state, action)
+      // const updatedArray = state.results.filter(
+      //   (result) => result.id !== action.resultElId
+      // );
+      // return updateObject(state, { results: updatedArray });
+    // return {
+    //   ...state,
+    //   results: updatedArray,
+    // };
   }
 
   return state;
